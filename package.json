@@ -1,0 +1,25 @@
+{
+  "name": "gfg-api",
+  "version": "1.0.0",
+  "description": "Give for Good API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carbon-co/gfg-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carbon-co/gfg-api/issues"
+  },
+  "homepage": "https://github.com/carbon-co/gfg-api#readme",
+  "dependencies": {
+    "koa": "~2.2.0",
+    "koa-router": "~7.2.0",
+    "mongodb": "^2.2.28"
+  }
+}
