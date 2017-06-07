@@ -23,7 +23,7 @@ class DBCustomer {
                 if (err) {
                     reject(err);
                 }
-                console.log(`Inserted ${r.insertedCount}`);
+                console.log(`Inserted ${r}`);
                 resolve(r);
             });
         });

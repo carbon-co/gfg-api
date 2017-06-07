@@ -1,5 +1,8 @@
+let Database = require("./database");
+
 class DBCharity{
-    insertOne(charity){
+    static insertOne(charity){
+        let db = Database.getInstance();
         return new Promise((resolve, reject) => {
             db.collection('charities').insertOne((charity), function(err, r){
                 if (err) {
@@ -12,7 +15,8 @@ class DBCharity{
 
     }
 
-    insertMany(charities) {
+    static insertMany(charities) {
+        let db = Database.getInstance();
 
         return new Promise((resolve, reject) => {
             db.collection('charities').insertMany((charities), function(err, r){
