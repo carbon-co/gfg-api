@@ -30,6 +30,19 @@ class DBCharity{
 
     }
 
+    static find(charities) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('charities').find(charities).toArray(function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
+
+
 }
 
 
