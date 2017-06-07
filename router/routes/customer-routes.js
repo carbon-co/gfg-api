@@ -1,4 +1,5 @@
 
+let DBCustomer = require("../../db/DBCustomer.js");
 
 class CustomerRoutes {
 
@@ -7,13 +8,19 @@ class CustomerRoutes {
     }
 
     addRoutes(router) {
-        router.get("/customers", (ctx, next) => {
+        router
+            .get("/customers", (ctx, next) => {
+                
+            })
 
-        });
+            .post("/customers", (ctx, next) => {
 
-        router.get("/customers/:id", (ctx, next) => {
+            })
 
-        });
+            .get("/customers/:id", (ctx, next) => {
+
+            })
+
     }
 
 }

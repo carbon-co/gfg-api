@@ -1,5 +1,5 @@
 
-const DBCustomer = require("./customer");
+const DBCustomer = require("./DBCustomer");
 const DBDonation = require("./DBDonation");
 const DBCharity = require("./DBCharity");
 
