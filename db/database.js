@@ -3,12 +3,12 @@ const MongoClient = require("mongodb").MongoClient;
 
 const url = "mongodb://localhost:27017/gfg";
 
-module.exports = class Database {
+class Database {
     constructor() {
         
     }
 
-    connect() {
+    async connect() {
         return new Promise((resolve, reject) => {
             MongoClient.connect(url, (err, db) => {
                 if (err) {
@@ -24,3 +24,5 @@ module.exports = class Database {
     }
 
 }
+
+module.exports = Database;
