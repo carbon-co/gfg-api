@@ -42,7 +42,29 @@ class DBCharity{
         });
     }
 
+    static updateOne(oldCharity, newCharity) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('charities').updateOne(oldCharity, newCharity, function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
 
+    static updateMany(oldCharity, newCharity) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('charities').updateMany(oldCharity, newCharity, function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
 }
 
 

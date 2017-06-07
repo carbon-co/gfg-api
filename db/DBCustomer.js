@@ -56,6 +56,29 @@ class DBCustomer {
         });
     }
 
+    static updateOne(oldCustomer, newCustomer) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('charities').updateOne(oldCustomer, newCustomer, function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
+
+    static updateMany(oldCustomer, newCustomer) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('charities').updateMany(oldCustomer, newCustomer, function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
 }
 
 
