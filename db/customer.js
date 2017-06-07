@@ -3,7 +3,7 @@ const Customer = require("./schemas").Customer;
 
 class DBCustomer {
 
-    var createValidated = function(db, callback) {
+    /*var createValidated = function(db, callback) {
     db.createCollection("Donations",
         {
             'validator': { '$or':
@@ -15,7 +15,7 @@ class DBCustomer {
             console.log("Donation collection created.");
             callback();
         }
-    );
+    );*/
 
     insertOne(customer){
         return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ class DBCustomer {
     insertMany(customers) {
 
         return new Promise((resolve, reject) => {
-            db.collection('customers').insertOne((customers), function(err, r){
+            db.collection('customers').insertMany((customers), function(err, r){
                 if (err) {
                     reject(err);
                 }
