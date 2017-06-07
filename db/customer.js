@@ -44,6 +44,34 @@ class DBCustomer {
 
     }
 
+    static deleteOne(customer){
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('customers').deleteOne((customer), function(err, r){
+                if (err) {
+                    reject(err);
+                }
+                console.log(`Inserted ${r}`);
+                resolve(r);
+            });
+        });
+
+    }
+
+    static deleteMany(customers) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('customers').deleteMany((customers), function(err, r){
+                if (err) {
+                    reject(err);
+                }
+
+                resolve(r);
+            });
+        });
+
+    }
+
 }
 
 

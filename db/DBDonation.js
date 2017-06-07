@@ -30,6 +30,36 @@ class DBDonation{
 
     }
 
+    static deleteOne(donation){
+        let db = Database.getInstance();
+
+        return new Promise((resolve, reject) => {
+            db.collection('donations').deleteOne((donation), function(err, r){
+                if (err) {
+                    reject(err);
+                }
+
+                resolve(r);
+            });
+        });
+
+    }
+
+    static deleteMany(donations){
+        let db = Database.getInstance();
+
+        return new Promise((resolve, reject) => {
+            db.collection('donations').deleteMany((donations), function(err, r){
+                if (err) {
+                    reject(err);
+                }
+
+                resolve(r);
+            });
+        });
+
+    }
+
 }
 
 
