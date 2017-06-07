@@ -1,6 +1,8 @@
 
 const KoaRouter = require("koa-router");
 
+const CustomerRoutes = require("./routes/customer-routes");
+
 class Router {
     
     constructor() {
@@ -8,16 +10,17 @@ class Router {
     }
 
     addRoutes() {
+        let customerRoutes = new CustomerRoutes();
+        customerRoutes.addRoutes(this.router);
+
         // Rest API urls go here
         this.router.get("/", (ctx, next) => {
             ctx.body = "Hello World";
         });
 
-        this.router.get("/customers", (ctx, next) => {
-            
-        });
-
         
+
+
     }
 
     getKoaRouter() {

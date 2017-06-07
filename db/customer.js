@@ -1,8 +1,7 @@
 
-const Customer = require("./schemas").Customer;
+let Database = require("./database");
 
 class DBCustomer {
-
     /*var createValidated = function(db, callback) {
     db.createCollection("Donations",
         {
@@ -17,21 +16,22 @@ class DBCustomer {
         }
     );*/
 
-    insertOne(customer){
+    static insertOne(customer){
+        let db = Database.getInstance();
         return new Promise((resolve, reject) => {
             db.collection('customers').insertOne((customer), function(err, r){
                 if (err) {
                     reject(err);
                 }
-
+                console.log(`Inserted ${r.insertedCount}`);
                 resolve(r);
             });
         });
 
     }
 
-    insertMany(customers) {
-
+    static insertMany(customers) {
+        let db = Database.getInstance();
         return new Promise((resolve, reject) => {
             db.collection('customers').insertMany((customers), function(err, r){
                 if (err) {

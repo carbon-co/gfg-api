@@ -4,11 +4,16 @@ const MongoClient = require("mongodb").MongoClient;
 const url = "mongodb://localhost:27017/gfg";
 
 class Database {
-    constructor() {
-        
+
+    static getInstance() {
+        if (!this.db) {
+            console.error("Using db without waiting to connect.");
+        }
+
+        return this.db;
     }
 
-    async connect() {
+    static async connect() {
         return new Promise((resolve, reject) => {
             MongoClient.connect(url, (err, db) => {
                 if (err) {
@@ -17,14 +22,12 @@ class Database {
                 }
 
                 console.log("Successfully connected to database");
-                resolve(db);
+                this.db = db;
+                resolve(this.db);
                 });
         });
         
     }
-
-
-
 }
 
 module.exports = Database;

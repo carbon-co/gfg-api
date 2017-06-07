@@ -11,10 +11,11 @@ class CustomerRoutes {
 
         });
 
-        router.get("/customers/${customerId}", (ctx, next) => {
+        router.get("/customers/:id", (ctx, next) => {
 
         });
     }
 
 }
 
+module.exports = CustomerRoutes;

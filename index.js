@@ -1,8 +1,8 @@
 
 let Koa = require("koa");
 let Router = require("./router/router");
-const Database = require("./db/database");
 
+const Database = require("./db/database");
 let DBTest = require("./db/db-test");
 
 
@@ -11,10 +11,6 @@ async function main() {
 
     var router = new Router();
     router.addRoutes();
-
-    // Test the database.
-    let dbTest = new DBTest();
-    await dbTest.test();
 
     // Configure middleware.
 
@@ -32,8 +28,12 @@ async function main() {
         });
     });
 
-    let db = new Database();
-    await db.connect();
+    await Database.connect();
+
+    // Test the database.
+    let dbTest = new DBTest();
+    await dbTest.test();
+
     app.listen(3000);
     console.log("Listening on port 3000");
 }
