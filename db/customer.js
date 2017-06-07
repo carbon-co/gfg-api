@@ -44,6 +44,18 @@ class DBCustomer {
 
     }
 
+    static find(customers) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('customers').find(customers).toArray(function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
+
 }
 
 

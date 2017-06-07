@@ -30,6 +30,19 @@ class DBDonation{
 
     }
 
+    static find(donations) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection('donations').find(donations).toArray(function(err, r) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
+
+
 }
 
 
