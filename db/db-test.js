@@ -21,6 +21,8 @@ class DBTest {
         await DBCharity.updateMany({donations: ["d1", "d2"]}, {$set: {donations: ["d1"]}});
         await DBCustomer.updateMany({donations: ["d1", "d2"]}, {$set: {donations: ["d1"]}});
         await DBDonation.updateMany({donations: ["d1", "d2"]}, {$set: {donations: ["d1"]}});
+        await DBCharity.deleteOne({donations: ["d1", "d2"]}, {$set: {donations: ["d1"]}});
+        await DBCustomer.deleteMany({donations: ["d1", "d2"]}, {$set: {donations: ["d1"]}});
     }
 
 }
