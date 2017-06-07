@@ -11,6 +11,28 @@ router.get("/", (ctx, next) => {
     ctx.body = "Hello World";
 });
 
+router.get("/users", (ctx, next) => {
+    ctx.body = [
+        {
+            name: "Tim",
+            address: "dsafs",
+            gfg: {
+                charities: ["charity1"],
+                donations: [
+                    {
+                        type: "fixed",
+                        frequency: "once"
+                    },
+                    {
+                        type: "percent",
+                        frequencey: "monthly"
+                    }
+                ]
+            }
+        }
+    ]
+});
+
 app
     .use(router.routes())
     .use(router.allowedMethods());
@@ -27,8 +49,19 @@ app.use(async (ctx, next) => {
 });
 
 let db = new Database();
-db.connect();
+db.connect().then((resolve, reject) => {
+    app.listen(3000);
+    console.log("Listening on port 3000");
+});
 
-app.listen(3000);
 
-console.log("Listening on port 3000");
+fs.read("./users.json", (err, data) => {
+    console.log("data");
+});
+
+
+
+
+
+
+
