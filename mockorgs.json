@@ -18,62 +18,69 @@
       "name": "Doctors without Borders",
       "id": 3,
       "date_joined": "01-01-2017",
-      "description": "Our doctors are sent to over 70 countries. war-torn regions and developing countries.",
+      "description": "Our doctors are sent to over 70 countries to deliver medical care to war-torn regions and developing countries.",
       "image": "../images/doctors.jpg"
+    },
+    {
+      "name": "Leukemia & Lymphoma Society",
+      "id": 5,
+      "date_joined": "01-01-2017",
+      "description": "LLS is the largest voluntary health organization dedicated to funding research, finding cures and ensuring access to treatments for blood cancer patients.",
+      "image": "../images/lls.jpg"
     },
     {
       "name": "National MS Society",
       "id": 5,
       "date_joined": "01-01-2017",
-      "description": "multiple sclerosis",
+      "description": "Today, more than 2.3 million people are affected by multiple sclerosis, an autoimmune disease that leads to brain and spinal cord damage. Our aim is a world free of MS.",
       "image": "../images/ms.jpg"
     },
     {
       "name": "Big Brothers/Big Sisters of America",
       "id": 6,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "We believe that every child has the ability to succeed and thrive in life. Our organization works to provide mentors to the youth of today.",
       "image": "../images/big.png"
     },
     {
       "name": "World Wildlife Fund",
       "id": 7,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "World Wildlife Fund conserves planet, habitats, and species.",
       "image": "../images/wwf.png"
     },
     {
       "name": "Mothers Against Drunk Driving",
       "id": 8,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "We strive to stop drunk driving, support those affected by drunk driving, prevent underage drinking, and strive for stricter impaired driving policy.",
       "image": "../images/madd.jpg"
     },
     {
       "name": "Keep America Beautiful",
       "id": 9,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "We focus on litter prevention, waste reduction/recycling and community greening and beautification in order to Keep America Beautiful",
       "image": "../images/kab.jpg"
     },
     {
       "name": "Water.org",
       "id": 10,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "We've empowered more than 6 million people with access to safe water and sanitation. Help us continue our work of unlocking education, economic prosperity, and improved health by providing one of the most basic of human necessities. ",
       "image": "../images/water.jpg"
     },
     {
       "name": "Make-A-Wish Foundation",
       "id": 11,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "You can be a part of granting a child's one-true-wish, changing their lives forever.",
       "image": "../images/wish.jpg"
     },
     {
       "name": "American Heart Association",
       "id": 12,
-      "date_joined": "01-01-2017",
+      "date_joined": "Join our efforts to reduce death caused by heart disease and stroke through education and research.",
       "description": "Dan Jukes",
       "image": "../images/aha.jpg"
     },
@@ -81,56 +88,56 @@
       "name": "Paralyzed Veterans of America",
       "id": 13,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "Our organization provides services to paralyzed veterans for holistic recovery and transition - from medical services to sports and recreation.",
       "image": "../images/paralyzed.jpg"
     },
     {
       "name": "Action Against Hunger",
       "id": 14,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "About 795 million people go to bed hungry every night. Nearly half of all child deaths worldwide are from causes related to undernutrition, even though it’s predictable, preventable, and treatable. Help us fight against world hunger today.",
       "image": "../images/hunger.jpeg"
     },
     {
       "name": "Fresh Air Fund",
       "id": 15,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "Since 1877, we have been providing free summer opportunities to children living in low-income communities - help a child have an unforgettable experience.",
       "image": "../images/freshair.jpg"
     },
     {
       "name": "UNICEF",
       "id": 16,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "UNICEF protects and defends the rights of every child by providing vaccines, nutritional supplements, educational supplies, and more.",
       "image": "../images/unicef.jpg"
     },
     {
       "name": "National Park Foundation",
       "id": 17,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "As the official charitable partner of the National Park Service, we provide resources for the national parks. Support this uniquely American idea.",
       "image": "../images/park.png"
     },
     {
       "name": "Operation Smile",
       "id": 18,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "Every three minutes a child is born with a cleft lip or cleft palate. At Operation Smile we believe every child suffering from a cleft condition deserves exceptional surgical care.",
       "image": "../images/smile.jpeg"
     },
     {
       "name": "Oxfam",
       "id": 19,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "Oxfam is a global movement of people working together to end the injustice of poverty. With 70 years of experience in more than 90 countries, Oxfam helps people save lives in disasters, build stronger futures for themselves, and hold the powerful accountable.",
       "image": "../images/oxfam.jpg"
     },
     {
       "name": "Habitat for Humanity",
       "id": 20,
       "date_joined": "01-01-2017",
-      "description": "Dan Jukes",
+      "description": "Every volunteer and donation makes a difference. Join us to help families build stronger foundations for the future in your community and around the world.",
       "image": "../images/habitat.jpg"
     }
   ]
