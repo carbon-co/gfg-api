@@ -1,12 +1,25 @@
 
 let Database = require("./database");
 
-class DBCustomer {
+class DBMethods {
+    // CRUD Operations
 
-    static insertOne(customer){
+    static find(collection, filter) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').insertOne((customer), function(err, r){
+            db.collection(collection).find(filter).toArray((err, r) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(r);
+            });
+        });
+    }
+
+    static insertOne(collection, entity) {
+        let db = Database.getInstance();
+        return new Promise((resolve, reject) => {
+            db.collection(collection).insertOne((entity), (err, r) => {
                 if (err) {
                     reject(err);
                 }
@@ -17,10 +30,10 @@ class DBCustomer {
 
     }
 
-    static insertMany(customers) {
+    static insertMany(collection, entities) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').insertMany((customers), function(err, r){
+            db.collection(collection).insertMany((entities), (err, r) => {
                 if (err) {
                     reject(err);
                 }
@@ -31,10 +44,10 @@ class DBCustomer {
 
     }
 
-    static deleteOne(customer){
+    static deleteOne(collection, filter) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').deleteOne((customer), function(err, r){
+            db.collection(collection).deleteOne((filter), (err, r) => {
                 if (err) {
                     reject(err);
                 }
@@ -44,36 +57,23 @@ class DBCustomer {
 
     }
 
-    static deleteMany(customers) {
+    static deleteMany(collection, filter) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').deleteMany((customers), function(err, r){
-                if (err) {
-                    reject(err);
-                }
-
-                resolve(r);
-            });
-        });
-
-    }
-
-    static find(customers) {
-        let db = Database.getInstance();
-        return new Promise((resolve, reject) => {
-            db.collection('customers').find(customers).toArray(function(err, r) {
+            db.collection(collection).deleteMany((filter), (err, r) => {
                 if (err) {
                     reject(err);
                 }
                 resolve(r);
             });
         });
+
     }
 
-    static updateOne(filter, update) {
+    static updateOne(collection, filter, update) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').findOneAndUpdate(filter, update, { returnOriginal: false }, function(err, r) {
+            db.collection(collection).findOneAndUpdate(filter, update, { returnOriginal: false }, (err, r) => {
                 if (err) {
                     reject(err);
                 }
@@ -82,10 +82,10 @@ class DBCustomer {
         });
     }
 
-    static updateMany(oldCustomer, newCustomer) {
+    static updateMany(collection, filter, update) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('customers').updateMany(oldCustomer, newCustomer, function(err, r) {
+            db.collection(collection).updateMany(filter, update, (err, r) => {
                 if (err) {
                     reject(err);
                 }
@@ -95,6 +95,4 @@ class DBCustomer {
     }
 }
 
-
-module.exports = DBCustomer;
-
+module.exports = DBMethods;
