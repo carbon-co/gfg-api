@@ -13,19 +13,24 @@ class Database {
     }
 
     static async connect() {
-        return new Promise((resolve, reject) => {
-            MongoClient.connect(url, (err, db) => {
-                if (err) {
-                    console.error(`error: ${err}`);
-                    reject(err);
-                }
+        try {
+            let db = await MongoClient.connect(url);
+            console.log("Successfully connected to database");
+            this.db = db;
 
-                console.log("Successfully connected to database");
-                this.db = db;
-                resolve(this.db);
-                });
-        });
-        
+            // Create indexes.
+            
+            await this.db.collection("customers").createIndex({ "id": 1 }, { unique: true });
+
+            await this.db.collection("charities").createIndex({ "id": 1 }, { unique: true });
+
+            await this.db.collection("donations").createIndex({ "id": 1 }, { unique: true });
+
+            return db;
+        }
+        catch(e) {
+            console.error(e);
+        }        
     }
 
 

@@ -6,12 +6,24 @@
 
 // class Donation {
 //     id = "";                     // unique id of donation - choose string or number
-//     charities = ["ch1", "ch2"];  // list of charity id's
-//     type = "fixed";              // fixed; percent
-//     frequency = "once";          // once; monthly
+//     charity = "c1";              // charity that is donated to
+//     type = "fixed";              // fixed or cashback
+//     frequency = "once";          // once or monthly
 //     dateStart = new Date();      // make sure to use Javascript date object here
 //     dateEnd = new Date();
 // }
+
+let donation = {
+    id: id,
+    subId: subId,
+    customerId: customerId,
+    charity: charity,
+    type: type,
+    frequency: frequency,
+    amount: amount,
+    dateStart: dateStart,
+    dateEnd: dateEnd
+}
 
 // class Charity {
 //     id = "";
