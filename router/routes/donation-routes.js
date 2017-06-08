@@ -1,7 +1,6 @@
-
 let Database = require("../../db/database.js");
 
-class CustomerRoutes {
+class donationRoutes {
 
     constructor() {
 
@@ -9,11 +8,11 @@ class CustomerRoutes {
 
     addRoutes(router) {
         router
-            .get("/customers", async (ctx, next) => {
+            .get("/donations", async (ctx, next) => {
                 // If query exists, then use it
                 if (ctx.query) {
                     console.log(ctx.query);
-                    ctx.body = await Database.find("customers", ctx.query);
+                    ctx.body = await Database.find("donations", ctx.query);
                 }
                 else {
                     ctx.body = await Database.find();
@@ -21,47 +20,47 @@ class CustomerRoutes {
                 
             })
 
-            .post("/customers", async (ctx, next) => {
+            .post("/donations", async (ctx, next) => {
                 let reqBody = ctx.request.body;
                 if (reqBody instanceof Array) {
-                    console.log("creating multiple customers");
-                    ctx.body = await Database.insertMany("customers", reqBody);
+                    console.log("creating multiple donations");
+                    ctx.body = await Database.insertMany("donations", reqBody);
                 }
                 else {
-                    console.log("creating single customer");
-                    ctx.body = await Database.insertOne("customers", reqBody);
+                    console.log("creating single donation");
+                    ctx.body = await Database.insertOne("donations", reqBody);
                 }
 
             })
 
-            .delete("/customers", async (ctx, next) => {
+            .delete("/donations", async (ctx, next) => {
                 let reqBody = ctx.request.body;
                 if (ctx.query) {
-                    ctx.body = await Database.deleteMany("customers", ctx.query);
+                    ctx.body = await Database.deleteMany("donations", ctx.query);
                 }
                 else {
                     ctx.body = await Database.deleteMany();
                 }
             })
 
-            .get("/customers/:id", async (ctx, next) => {
-                ctx.body = (await Database.find("customers",
+            .get("/donations/:id", async (ctx, next) => {
+                ctx.body = (await Database.find("donations",
                 {
                     id: ctx.params.id
                 }))[0];
             })
 
-            .put("/customers/:id", async (ctx, next) => {
+            .put("/donations/:id", async (ctx, next) => {
                 let reqBody = ctx.request.body;
-                console.log("updating single customer");
+                console.log("updating single donation");
                 let filter = { id: ctx.params.id };
                 let update = { $set: ctx.request.body };
                 console.log(update);
-                ctx.body = await Database.updateOne("customers", filter, update);
+                ctx.body = await Database.updateOne("donations", filter, update);
             })
 
-            .delete("/customers/:id", async (ctx, next) => {
-                ctx.body = await Database.deleteOne("customers",
+            .delete("/donations/:id", async (ctx, next) => {
+                ctx.body = await Database.deleteOne("donations",
                 {
                     id: ctx.params.id
                 });
@@ -69,4 +68,4 @@ class CustomerRoutes {
     }
 }
 
-module.exports = CustomerRoutes;
+module.exports = donationRoutes;
