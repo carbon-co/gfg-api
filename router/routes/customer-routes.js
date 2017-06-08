@@ -34,11 +34,36 @@ class CustomerRoutes {
 
             })
 
+            .delete("/customers", async (ctx, next) => {
+                let reqBody = ctx.request.body;
+                if (ctx.query) {
+                    ctx.body = await DBCustomer.deleteMany(ctx.query);
+                }
+                else {
+                    ctx.body = await DBCustomer.deleteMany();
+                }
+            })
+
             .get("/customers/:id", async (ctx, next) => {
-                ctx.body = await DBCustomer.find({
+                ctx.body = (await DBCustomer.find({
+                    id: ctx.params.id
+                }))[0];
+            })
+
+            .put("/customers/:id", async (ctx, next) => {
+                let reqBody = ctx.request.body;
+                console.log("updating single customer");
+                let filter = { id: ctx.params.id };
+                let update = { $set: ctx.request.body };
+                console.log(update);
+                ctx.body = await DBCustomer.updateOne(filter, update);
+            })
+
+            .delete("/customers/:id", async (ctx, next) => {
+                ctx.body = await DBCustomer.deleteOne({
                     id: ctx.params.id
                 });
-            })
+            });
 
     }
 

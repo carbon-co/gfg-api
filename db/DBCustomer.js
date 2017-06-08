@@ -2,19 +2,6 @@
 let Database = require("./database");
 
 class DBCustomer {
-    /*var createValidated = function(db, callback) {
-    db.createCollection("Donations",
-        {
-            'validator': { '$or':
-                [{'Donations' : {'$type': "string"}}
-                ]
-            }
-        },
-        function(err, results) {
-            console.log("Donation collection created.");
-            callback();
-        }
-    );*/
 
     static insertOne(customer){
         let db = Database.getInstance();
@@ -84,14 +71,14 @@ class DBCustomer {
         });
     }
 
-    static updateOne(oldCustomer, newCustomer) {
+    static updateOne(filter, update) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('charities').updateOne(oldCustomer, newCustomer, function(err, r) {
+            db.collection('customers').findOneAndUpdate(filter, update, { returnOriginal: false }, function(err, r) {
                 if (err) {
                     reject(err);
                 }
-                resolve(r);
+                resolve(r.value);
             });
         });
     }
@@ -99,7 +86,7 @@ class DBCustomer {
     static updateMany(oldCustomer, newCustomer) {
         let db = Database.getInstance();
         return new Promise((resolve, reject) => {
-            db.collection('charities').updateMany(oldCustomer, newCustomer, function(err, r) {
+            db.collection('customers').updateMany(oldCustomer, newCustomer, function(err, r) {
                 if (err) {
                     reject(err);
                 }
