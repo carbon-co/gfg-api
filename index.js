@@ -9,9 +9,7 @@ let DBTest = require("./db/db-test");
 
 
 async function main() {
-    var app = new Koa();
-
-    
+    var app = new Koa();    
 
     // Configure middleware.
 
@@ -27,7 +25,7 @@ async function main() {
     });
 
     // Routes.
-    var router = new Router();
+    let router = new Router();
     router.addRoutes();
     app
         .use(router.getKoaRouter().routes())

@@ -13,14 +13,6 @@ class Router {
         let customerRoutes = new CustomerRoutes();
         customerRoutes.addRoutes(this.router);
 
-        // Rest API urls go here
-        this.router.get("/", (ctx, next) => {
-            ctx.body = "Hello World";
-        });
-
-        
-
-
     }
 
     getKoaRouter() {

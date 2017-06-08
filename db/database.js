@@ -7,9 +7,8 @@ class Database {
 
     static getInstance() {
         if (!this.db) {
-            console.error("Using db without waiting to connect.");
+            console.error("Attempting to use database without connecting first.");
         }
-
         return this.db;
     }
 
@@ -28,6 +27,9 @@ class Database {
         });
         
     }
+
+
+
 }
 
 module.exports = Database;
