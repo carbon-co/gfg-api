@@ -1,6 +1,7 @@
 
 let Koa = require("koa");
 let BodyParser = require("koa-bodyparser");
+let Cors = require("kcors");
 
 let Router = require("./router/router");
 
@@ -12,6 +13,9 @@ async function main() {
     var app = new Koa();    
 
     // Configure middleware.
+
+    // CORS
+    app.use(Cors());
 
     // Body parser for requests.
     app.use(BodyParser());

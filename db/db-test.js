@@ -1,6 +1,9 @@
 
 const DBMethods = require("./db-methods");
 const Fetch = require("./FetchConsumers");
+let ObjectID = require("mongodb").ObjectID;
+
+const NUM_CHARITIES = 20;
 
 class DBTest {
 
@@ -9,6 +12,7 @@ class DBTest {
         // Fetch.fetchConsumer();
 
         // await insertCustomersCharities();
+        await this.insertDonations();
 
         
         // await DBCustomer.insertOne({ donations: ["d1", "d2"] });
@@ -49,8 +53,27 @@ class DBTest {
     async insertDonations() {
         let customers = await DBMethods.find("customers");
         for (let customer of customers) {
-            
+            let numCharities = DBTest.rand(0, 10);
+            let randType = Math.random() % 2;
+            let randFreq = Math.random() % 2;
+            let startDateBegin = new Date(2015, 1, 1);
+            let startDateEnd = new Date(2017, 6, 8);
+            let endDateBegin = new Date(2015, 1, 2);
+            let endDateEnd = new Date(2017, 6, 8);
+
+            let id = new ObjectID();
+            let promises = [];
+            for (let i = 0; i < numCharities; ++i) {
+                let charityId = DBTest.rand(0, NUM_CHARITIES);
+                promises.push(DBMethods.find("charities", { id: charityId }));
+            }
+            let charities = await Promise.all(promises);
+            console.log(charities);
         }
+    }
+
+    static rand(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 
 }
