@@ -8,7 +8,7 @@
 //     id = "";                     // unique id of donation - choose string or number
 //     charity = "c1";              // charity that is donated to
 //     type = "fixed";              // fixed or cashback
-//     frequency = "once";          // once or monthly
+//     frequency = "once";          // once or recurring
 //     dateStart = new Date();      // make sure to use Javascript date object here
 //     dateEnd = new Date();
 // }
@@ -21,6 +21,7 @@ let donation = {
     type: type,
     frequency: frequency,
     amount: amount,
+    percent: percent,
     dateStart: dateStart,
     dateEnd: dateEnd
 }

@@ -98,7 +98,7 @@ class DBTest {
                     percent = 0;
                 }
                 else {
-                    amount = DBTest.rand(AMOUNT_PERCENT_MIN, AMOUNT_PERCENT_MAX);
+                    percent = DBTest.rand(AMOUNT_PERCENT_MIN, AMOUNT_PERCENT_MAX);
                 }
 
                 let dateStart = new Date(DBTest.rand(dateStartFirst.getTime(), dateStartLast.getTime()));
@@ -123,11 +123,12 @@ class DBTest {
                     type: type,
                     frequency: frequency,
                     amount: amount,
+                    percent: percent,
                     dateStart: dateStart,
                     dateEnd: dateEnd
                 }
 
-                console.log(donation);
+                // console.log(donation);
 
                 // Now, we need to generate donations for monthly recurring donations.
                 // Note that only the id's and amount will change each donation
@@ -136,6 +137,7 @@ class DBTest {
                     for (let i = 0; i < numMonths; ++i) {
                         donation.id = new ObjectID();
                         donation.amount = DBTest.rand(AMOUNT_FIXED_MIN, AMOUNT_FIXED_MAX);
+                        console.log(donation);
                     }
                 }
                 

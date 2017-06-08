@@ -1,5 +1,8 @@
 
+let ObjectID = require("mongodb").ObjectID;
+
 let DBMethods = require("../../db/db-methods");
+
 
 class DonationRoutes {
 
@@ -22,11 +25,13 @@ class DonationRoutes {
                 let reqBody = ctx.request.body;
                 if (reqBody instanceof Array) {
                     console.log("creating multiple donations");
+                    reqBody = reqBody.map(DonationRoutes.createDonation);
                     ctx.body = await DBMethods.insertMany("donations", reqBody);
                 }
                 else {
                     console.log("creating single donation");
-                    ctx.body = await DBMethods.insertOne("donations", reqBody);
+                    let donation = DonationRoutes.createDonation(reqBody);
+                    ctx.body = await DBMethods.insertOne("donations", donation);
                 }
 
             })
@@ -56,6 +61,38 @@ class DonationRoutes {
                 });
             });
 
+    }
+
+
+    /**
+     * Generates the additional fields for a donation.
+     * @param {*} donationOpts 
+     */
+    static createDonation(donationOpts) {
+        let id = new ObjectID();
+        let subId;
+        let dateEnd = null;
+        if (donationOpts.frequency === "recurring") {
+            subId = new ObjectID();
+        }
+        else {
+            subId = null;
+        }
+        
+        let donation = {
+            id: new ObjectID(),
+            subId: subId,
+            customerId: donationOpts.customerId,
+            charity: donationOpts.charity,
+            type: donationOpts.type,
+            frequency: donationOpts.frequency,
+            amount: donationOpts.amount,
+            percent: donationOpts.percent,
+            dateStart: new Date(),
+            dateEnd: null
+        };
+        
+        return donation;
     }
 
 }
