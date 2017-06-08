@@ -77,6 +77,7 @@ class DBTest {
             let numDonations = DBTest.rand(0, 5);
             let customerId = customer.id;
 
+            let promises = [];
             for (let i = 0; i < numDonations; ++i) {
                 let randType = DBTest.rand(0, 1);
                 let randFreq = DBTest.rand(0, 1);
@@ -129,6 +130,7 @@ class DBTest {
                 }
 
                 // console.log(donation);
+                promises.push(DBMethods.insertOne("donations", donation));
 
                 // Now, we need to generate donations for monthly recurring donations.
                 // Note that only the id's and amount will change each donation
@@ -137,13 +139,15 @@ class DBTest {
                     for (let i = 0; i < numMonths; ++i) {
                         donation.id = new ObjectID();
                         donation.amount = DBTest.rand(AMOUNT_FIXED_MIN, AMOUNT_FIXED_MAX);
-                        console.log(donation);
+                        // console.log(donation);
+                        // promises.push(DBMethods.insertOne("donations", donation));
                     }
                 }
                 
             }
             
             // console.log(charities);
+            await Promise.all(promises);
         }
     }
 
