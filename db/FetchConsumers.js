@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const DBMethods = require("./db-methods");
 
-const url = 'http://api.reimaginebanking.com/enterprise/customers?key=f4c72f015964b11n52072aa389cd022f4';
+const url = 'http://api.reimaginebanking.com/enterprise/customers?key=cd5a88297a77e98f9c52bf911e28e597';
 
 class FetchConsumers {
 
@@ -11,12 +11,15 @@ class FetchConsumers {
             return res.json();
         })
         .then(async function(json) {
-            var retrieved = json;
+            var retrieved = json.results;
+            console.log(retrieved);
             var consumers = [];
-            for (i = 0; i < retrieved.length; i++) {
-                consumers.push(retrieved[i]["first_name"] + "_" + retrieved[i]["last_name"]);
+            for (let i = 0; i < retrieved.length; i++) {
+                consumers.push({
+                    "name": retrieved[i]["first_name"] + "_" + retrieved[i]["last_name"]
+                });
             }
-            await DBMethods.insertMany(consumers);
+            await DBMethods.insertMany("customers", consumers);
         })
         .catch(function(error) {
             console.log(`Cannot fetch: ${error}`);
