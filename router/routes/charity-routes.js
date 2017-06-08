@@ -10,6 +10,9 @@ class CharityRoutes {
                 // If query exists, then use it
                 if (ctx.query) {
                     console.log(ctx.query);
+                    if (ctx.query.id) {
+                        ctx.query.id = parseInt(ctx.query.id);
+                    }
                     ctx.body = await DBMethods.find("charities", ctx.query);
                 }
                 else {
@@ -37,7 +40,7 @@ class CharityRoutes {
 
             .get("/charities/:id", async (ctx, next) => {
                 ctx.body = (await DBMethods.find("charities", {
-                    id: ctx.params.id
+                    id: parseInt(ctx.params.id)
                 }))[0];
             })
 
