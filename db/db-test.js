@@ -11,8 +11,8 @@ class DBTest {
         await DBMethods.find("customers");
         // Fetch.fetchConsumer();
 
-        // await insertCustomersCharities();
-        await this.insertDonations();
+        // await this.insertCustomersCharities();
+        // await this.insertDonations();
 
         
         // await DBCustomer.insertOne({ donations: ["d1", "d2"] });
