@@ -137,10 +137,11 @@ class DBTest {
                 if (frequency === "recurring") {
                     let numMonths = DBTest.diffMonths(dateStart, dateEnd);
                     for (let i = 0; i < numMonths; ++i) {
+                        donation._id = new ObjectID();
                         donation.id = new ObjectID();
                         donation.amount = DBTest.rand(AMOUNT_FIXED_MIN, AMOUNT_FIXED_MAX);
                         // console.log(donation);
-                        // promises.push(DBMethods.insertOne("donations", donation));
+                        promises.push(DBMethods.insertOne("donations", donation));
                     }
                 }
                 

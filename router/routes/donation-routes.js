@@ -13,6 +13,14 @@ class DonationRoutes {
                 // If query exists, then use it
                 if (ctx.query) {
                     console.log(ctx.query);
+                    if (ctx.query.amount) {
+                        ctx.query.amount = parseInt(ctx.query.amount);
+                    }
+                    if (ctx.query.percent) {
+                        ctx.query.percent = parseInt(ctx.query.percent);
+                    }
+                    // ctx.query.amount = parseInt(ctx.query.amount);
+                    // ctx.query.percent = parseInt(ctx.query.percent);
                     ctx.body = await DBMethods.find("donations", ctx.query);
                 }
                 else {
@@ -91,7 +99,7 @@ class DonationRoutes {
             dateStart: new Date(),
             dateEnd: null
         };
-        
+
         return donation;
     }
 
