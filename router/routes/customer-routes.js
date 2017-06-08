@@ -31,21 +31,8 @@ class CustomerRoutes {
 
             })
 
-            .put("/customers", async (ctx, next) => {
-                let reqBody = ctx.request.body;
-                if (ctx.query) {
-                    ctx.body = await DBMethods.deleteMany("customers", ctx.query);
-                }
-            })
-
             .delete("/customers", async (ctx, next) => {
-                let reqBody = ctx.request.body;
-                if (ctx.query) {
-                    ctx.body = await DBMethods.deleteMany("customers", ctx.query);
-                }
-                else {
-                    ctx.body = await DBMethods.deleteMany("customers");
-                }
+                ctx.body = await DBMethods.deleteMany("customers", ctx.request.body);
             })
 
             .get("/customers/:id", async (ctx, next) => {
@@ -58,7 +45,7 @@ class CustomerRoutes {
                 let reqBody = ctx.request.body;
                 console.log("updating single customer");
                 let filter = { id: ctx.params.id };
-                let update = { $set: ctx.request.body };
+                let update = { $set: reqBody };
                 console.log(update);
                 ctx.body = await DBMethods.updateOne("customers", filter, update);
             })

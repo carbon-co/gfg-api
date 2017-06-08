@@ -1,51 +1,42 @@
-let Database = require("../../db/database.js");
 
-class charityRoutes {
+let DBMethods = require("../../db/db-methods");
 
-    constructor() {
-
-    }
+class CharityRoutes {
 
     addRoutes(router) {
         router
             .get("/charities", async (ctx, next) => {
+                console.log(DBMethods.db);
                 // If query exists, then use it
                 if (ctx.query) {
                     console.log(ctx.query);
-                    ctx.body = await Database.find("charities", ctx.query);
+                    ctx.body = await DBMethods.find("charities", ctx.query);
                 }
                 else {
-                    ctx.body = await Database.find();
+                    ctx.body = await DBMethods.find("charities");
                 }
-                
+
             })
 
             .post("/charities", async (ctx, next) => {
                 let reqBody = ctx.request.body;
                 if (reqBody instanceof Array) {
                     console.log("creating multiple charities");
-                    ctx.body = await Database.insertMany("charities", reqBody);
+                    ctx.body = await DBMethods.insertMany("charities", reqBody);
                 }
                 else {
                     console.log("creating single charity");
-                    ctx.body = await Database.insertOne("charities", reqBody);
+                    ctx.body = await DBMethods.insertOne("charities", reqBody);
                 }
 
             })
 
             .delete("/charities", async (ctx, next) => {
-                let reqBody = ctx.request.body;
-                if (ctx.query) {
-                    ctx.body = await Database.deleteMany("charities", ctx.query);
-                }
-                else {
-                    ctx.body = await Database.deleteMany();
-                }
+                ctx.body = await DBMethods.deleteMany("charities", ctx.request.body);
             })
 
             .get("/charities/:id", async (ctx, next) => {
-                ctx.body = (await Database.find("charities",
-                {
+                ctx.body = (await DBMethods.find("charities", {
                     id: ctx.params.id
                 }))[0];
             })
@@ -54,18 +45,19 @@ class charityRoutes {
                 let reqBody = ctx.request.body;
                 console.log("updating single charity");
                 let filter = { id: ctx.params.id };
-                let update = { $set: ctx.request.body };
+                let update = { $set: reqBody };
                 console.log(update);
-                ctx.body = await Database.updateOne("charities", filter, update);
+                ctx.body = await DBMethods.updateOne("charities", filter, update);
             })
 
             .delete("/charities/:id", async (ctx, next) => {
-                ctx.body = await Database.deleteOne("charities",
-                {
+                ctx.body = await DBMethods.deleteOne("charities", {
                     id: ctx.params.id
                 });
             });
+
     }
+
 }
 
-module.exports = charityRoutes;
+module.exports = CharityRoutes;

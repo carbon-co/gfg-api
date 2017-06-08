@@ -1,51 +1,42 @@
-let Database = require("../../db/database.js");
 
-class donationRoutes {
+let DBMethods = require("../../db/db-methods");
 
-    constructor() {
-
-    }
+class DonationRoutes {
 
     addRoutes(router) {
         router
             .get("/donations", async (ctx, next) => {
+                console.log(DBMethods.db);
                 // If query exists, then use it
                 if (ctx.query) {
                     console.log(ctx.query);
-                    ctx.body = await Database.find("donations", ctx.query);
+                    ctx.body = await DBMethods.find("donations", ctx.query);
                 }
                 else {
-                    ctx.body = await Database.find();
+                    ctx.body = await DBMethods.find("donations");
                 }
-                
+
             })
 
             .post("/donations", async (ctx, next) => {
                 let reqBody = ctx.request.body;
                 if (reqBody instanceof Array) {
                     console.log("creating multiple donations");
-                    ctx.body = await Database.insertMany("donations", reqBody);
+                    ctx.body = await DBMethods.insertMany("donations", reqBody);
                 }
                 else {
                     console.log("creating single donation");
-                    ctx.body = await Database.insertOne("donations", reqBody);
+                    ctx.body = await DBMethods.insertOne("donations", reqBody);
                 }
 
             })
 
             .delete("/donations", async (ctx, next) => {
-                let reqBody = ctx.request.body;
-                if (ctx.query) {
-                    ctx.body = await Database.deleteMany("donations", ctx.query);
-                }
-                else {
-                    ctx.body = await Database.deleteMany();
-                }
+                ctx.body = await DBMethods.deleteMany("donations", ctx.request.body);
             })
 
             .get("/donations/:id", async (ctx, next) => {
-                ctx.body = (await Database.find("donations",
-                {
+                ctx.body = (await DBMethods.find("donations", {
                     id: ctx.params.id
                 }))[0];
             })
@@ -54,18 +45,19 @@ class donationRoutes {
                 let reqBody = ctx.request.body;
                 console.log("updating single donation");
                 let filter = { id: ctx.params.id };
-                let update = { $set: ctx.request.body };
+                let update = { $set: reqBody };
                 console.log(update);
-                ctx.body = await Database.updateOne("donations", filter, update);
+                ctx.body = await DBMethods.updateOne("donations", filter, update);
             })
 
             .delete("/donations/:id", async (ctx, next) => {
-                ctx.body = await Database.deleteOne("donations",
-                {
+                ctx.body = await DBMethods.deleteOne("donations", {
                     id: ctx.params.id
                 });
             });
+
     }
+
 }
 
-module.exports = donationRoutes;
+module.exports = DonationRoutes;
