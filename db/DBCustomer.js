@@ -51,7 +51,6 @@ class DBCustomer {
                 if (err) {
                     reject(err);
                 }
-                console.log(`Inserted ${r}`);
                 resolve(r);
             });
         });
