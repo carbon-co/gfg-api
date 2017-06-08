@@ -5,133 +5,133 @@
       "id": 1,
       "date_joined": "01-01-2017",
       "description": "Texas 4000 is an organization dedicated to fighting cancer and developing future leaders. Each summer, a team of students from The University of Texas at Austin bikes from Austin, TX to Anchorage, AK on a 70-day journey while spreading the message of cancer prevention along the way. Prior to embarking on the journey, each rider fundraises at least $4,500.",
-      "image": "../images/texas4000.jpg"
+      "image": "./images/texas4000.jpg"
     },
     {
     "name": "MD Anderson Cancer Center",
       "id": 2,
       "date_joined": "01-01-2017",
       "description": "MD Anderson, located in Houston, TX, is widely considered the foremost cancer center in the world. Each year, over 127,000 patients are treated at our facilities.",
-      "image": "../images/mdanderson.jpg"
+      "image": "./images/mdanderson.jpg"
     },
     {
       "name": "Doctors without Borders",
       "id": 3,
       "date_joined": "01-01-2017",
       "description": "Our doctors are sent to over 70 countries. war-torn regions and developing countries.",
-      "image": "../images/doctors.jpg"
+      "image": "./images/doctors.jpg"
     },
     {
       "name": "National MS Society",
       "id": 5,
       "date_joined": "01-01-2017",
       "description": "multiple sclerosis",
-      "image": "../images/ms.jpg"
+      "image": "./images/ms.jpg"
     },
     {
       "name": "Big Brothers/Big Sisters of America",
       "id": 6,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/big.png"
+      "image": "./images/big.png"
     },
     {
       "name": "World Wildlife Fund",
       "id": 7,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/wwf.png"
+      "image": "./images/wwf.png"
     },
     {
       "name": "Mothers Against Drunk Driving",
       "id": 8,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/madd.jpg"
+      "image": "./images/madd.jpg"
     },
     {
       "name": "Keep America Beautiful",
       "id": 9,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/kab.jpg"
+      "image": "./images/kab.jpg"
     },
     {
       "name": "Water.org",
       "id": 10,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/water.jpg"
+      "image": "./images/water.jpg"
     },
     {
       "name": "Make-A-Wish Foundation",
       "id": 11,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/wish.jpg"
+      "image": "./images/wish.jpg"
     },
     {
       "name": "American Heart Association",
       "id": 12,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/aha.jpg"
+      "image": "./images/aha.jpg"
     },
     {
       "name": "Paralyzed Veterans of America",
       "id": 13,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/paralyzed.jpg"
+      "image": "./images/paralyzed.jpg"
     },
     {
       "name": "Action Against Hunger",
       "id": 14,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/hunger.jpeg"
+      "image": "./images/hunger.jpeg"
     },
     {
       "name": "Fresh Air Fund",
       "id": 15,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/freshair.jpg"
+      "image": "./images/freshair.jpg"
     },
     {
       "name": "UNICEF",
       "id": 16,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/unicef.jpg"
+      "image": "./images/unicef.jpg"
     },
     {
       "name": "National Park Foundation",
       "id": 17,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/park.png"
+      "image": "./images/park.png"
     },
     {
       "name": "Operation Smile",
       "id": 18,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/smile.jpeg"
+      "image": "./images/smile.jpeg"
     },
     {
       "name": "Oxfam",
       "id": 19,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/oxfam.jpg"
+      "image": "./images/oxfam.jpg"
     },
     {
       "name": "Habitat for Humanity",
       "id": 20,
       "date_joined": "01-01-2017",
       "description": "Dan Jukes",
-      "image": "../images/habitat.jpg"
+      "image": "./images/habitat.jpg"
     }
   ]
 }
